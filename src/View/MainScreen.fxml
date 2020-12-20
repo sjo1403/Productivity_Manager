@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.StackedBarChart?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TreeTableColumn?>
+<?import javafx.scene.control.TreeTableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.MainController">
+   <children>
+      <GridPane prefHeight="600.0" prefWidth="800.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="395.0" minWidth="10.0" prefWidth="235.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="565.0" minWidth="10.0" prefWidth="565.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <GridPane GridPane.columnIndex="1">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="419.0" minHeight="10.0" prefHeight="419.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="194.0" minHeight="0.0" prefHeight="66.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <GridPane GridPane.rowIndex="1">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints maxHeight="194.0" minHeight="10.0" prefHeight="71.0" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="331.0" minHeight="10.0" prefHeight="329.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <HBox alignment="BOTTOM_CENTER" prefHeight="100.0" prefWidth="200.0" spacing="15.0">
+                           <children>
+                              <VBox alignment="TOP_CENTER">
+                                 <children>
+                                    <Label text="Current Project">
+                                       <font>
+                                          <Font name="Tahoma" size="14.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets />
+                                       </VBox.margin>
+                                    </Label>
+                                    <TextField fx:id="projectTxt" alignment="CENTER" editable="false" prefWidth="130.0" style="-fx-font-size: 16; -fx-font-family: Tahoma; -fx-border-color: transparent; -fx-font-weight: Bold;" text="#xxx.xxxx.xxx">
+                                       <VBox.margin>
+                                          <Insets top="5.0" />
+                                       </VBox.margin>
+                                    </TextField>
+                                 </children>
+                                 <padding>
+                                    <Insets top="30.0" />
+                                 </padding>
+                              </VBox>
+                              <VBox alignment="TOP_CENTER">
+                                 <children>
+                                    <Label text="Time Elapsed">
+                                       <font>
+                                          <Font name="Tahoma" size="14.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets />
+                                       </VBox.margin>
+                                    </Label>
+                                    <TextField fx:id="elapsedTxt" alignment="CENTER" editable="false" prefWidth="130.0" style="-fx-font-size: 16; -fx-font-family: Tahoma; -fx-border-color: transparent; -fx-font-weight: Bold;" text="01:59:00">
+                                       <VBox.margin>
+                                          <Insets top="5.0" />
+                                       </VBox.margin>
+                                    </TextField>
+                                 </children>
+                                 <padding>
+                                    <Insets top="30.0" />
+                                 </padding>
+                              </VBox>
+                              <VBox alignment="TOP_CENTER">
+                                 <children>
+                                    <Label text="Time Left">
+                                       <font>
+                                          <Font name="Tahoma" size="14.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets />
+                                       </VBox.margin>
+                                    </Label>
+                                    <TextField fx:id="remainTxt" alignment="CENTER" editable="false" prefWidth="130.0" style="-fx-font-size: 16; -fx-font-family: Tahoma; -fx-border-color: transparent; -fx-font-weight: Bold;" text="00:00:59">
+                                       <VBox.margin>
+                                          <Insets top="5.0" />
+                                       </VBox.margin>
+                                    </TextField>
+                                 </children>
+                                 <padding>
+                                    <Insets top="30.0" />
+                                 </padding>
+                              </VBox>
+                              <MenuButton mnemonicParsing="false" onAction="#optionButt" style="-fx-font-family: Tahoma; -fx-font-weight: Bold;" text="Options">
+                                <items>
+                                  <MenuItem mnemonicParsing="false" onAction="#viewButt" text="Change View" />
+                                  <MenuItem mnemonicParsing="false" onAction="#reportButt" text="Generate Report" />
+                                    <MenuItem mnemonicParsing="false" onAction="#deleteButt" text="Delete Timecard" />
+                                </items>
+                                 <HBox.margin>
+                                    <Insets bottom="7.0" />
+                                 </HBox.margin>
+                              </MenuButton>
+                           </children>
+                           <GridPane.margin>
+                              <Insets />
+                           </GridPane.margin>
+                        </HBox>
+                        <StackedBarChart fx:id="chart" GridPane.rowIndex="1">
+                          <xAxis>
+                            <CategoryAxis side="BOTTOM" />
+                          </xAxis>
+                          <yAxis>
+                            <NumberAxis side="LEFT" />
+                          </yAxis>
+                        </StackedBarChart>
+                     </children>
+                  </GridPane>
+                  <VBox prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="2">
+                     <children>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Button mnemonicParsing="false" onAction="#trackButt" prefHeight="50.0" prefWidth="400.0" style="-fx-font-family: Tahoma; -fx-font-weight: Bold; -fx-font-size: 20;" text="Start/Stop">
+                                 <HBox.margin>
+                                    <Insets bottom="10.0" top="5.0" />
+                                 </HBox.margin>
+                              </Button>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="40.0">
+                           <children>
+                              <Button mnemonicParsing="false" onAction="#newButt" prefHeight="30.0" prefWidth="120.0" style="-fx-font-family: Tahoma; -fx-font-weight: Bold;" text="New Project">
+                                 <HBox.margin>
+                                    <Insets bottom="20.0" />
+                                 </HBox.margin>
+                              </Button>
+                              <Button fx:id="closeButt" mnemonicParsing="false" onAction="#closeButt" prefHeight="30.0" prefWidth="120.0" style="-fx-font-family: Tahoma; -fx-font-weight: Bold;" text="Close">
+                                 <HBox.margin>
+                                    <Insets bottom="20.0" />
+                                 </HBox.margin>
+                              </Button>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="565.0">
+                     <children>
+                        <Label style="-fx-font-family: Tahoma; -fx-font-size: 48;" text="GoodCard">
+                           <font>
+                              <Font name="Tahoma" size="48.0" />
+                           </font>
+                           <padding>
+                              <Insets top="10.0" />
+                           </padding>
+                           <HBox.margin>
+                              <Insets top="35.0" />
+                           </HBox.margin>
+                        </Label>
+                     </children>
+                     <GridPane.margin>
+                        <Insets />
+                     </GridPane.margin>
+                  </HBox>
+               </children>
+            </GridPane>
+            <VBox prefHeight="200.0" prefWidth="100.0">
+               <GridPane.margin>
+                  <Insets top="5.0" />
+               </GridPane.margin>
+               <children>
+                  <HBox alignment="BOTTOM_LEFT" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <TextField fx:id="searchTxt" onAction="#searchTxt" prefWidth="225.0" promptText="Search">
+                           <HBox.margin>
+                              <Insets bottom="5.0" left="5.0" />
+                           </HBox.margin>
+                        </TextField>
+                     </children>
+                  </HBox>
+                  <TreeTableView fx:id="treeView" prefHeight="597.0" prefWidth="225.0" showRoot="false">
+                    <columns>
+                      <TreeTableColumn fx:id="projectCol" prefWidth="225.0" text="My Projects" />
+                    </columns>
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" />
+                     </VBox.margin>
+                  </TreeTableView>
+               </children>
+            </VBox>
+         </children>
+      </GridPane>
+   </children>
+</AnchorPane>
