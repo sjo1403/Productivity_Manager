@@ -14,8 +14,6 @@ public class Main extends Application {
         primaryStage.setTitle("Welcome to GoodCard!");
         primaryStage.setScene(new Scene(root, 600, 400));
         primaryStage.show();
-
-        String token = "cb0a82bfe087eb6d2102c4eb355231e665ec61d0";
     }
 
 
