@@ -1,11 +1,15 @@
 package Model;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
 public class Project {
     private String projectName;
     private String projectNumber;
     private String projectDescription;
+    private ObservableList<Task> associatedTasks = FXCollections.observableArrayList();
 
-    Project(String projectName, String projectNumber, String projectDescription) {
+    public Project(String projectName, String projectNumber, String projectDescription) {
         setProjectName(projectName);
         setProjectNumber(projectNumber);
         setProjectDescription(projectDescription);
@@ -33,5 +37,15 @@ public class Project {
 
     public void setProjectDescription(String projectDescription) {
         this.projectDescription = projectDescription;
+    }
+
+    public void addAssociatedTasks(ObservableList<Task> addedTasks) {
+
+        associatedTasks.setAll(addedTasks);
+    }
+
+    public ObservableList<Task> getAssociatedTasks() {
+
+        return associatedTasks;
     }
 }

@@ -4,7 +4,7 @@ public class Timecard {
     private String cardName;
     private String cardDate;
 
-    Timecard(String cardName, String cardDate) {
+    public Timecard(String cardName, String cardDate) {
         setCardName(cardName);
         setCardDate(cardDate);
     }

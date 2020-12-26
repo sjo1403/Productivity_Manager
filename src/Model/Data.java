@@ -4,32 +4,38 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 public class Data {
-    private ObservableList<Timecard> timecards = FXCollections.observableArrayList();
-    private ObservableList<Project> projects = FXCollections.observableArrayList();
-    private ObservableList<Task> tasks = FXCollections.observableArrayList();
+    private static ObservableList<Timecard> timecards = FXCollections.observableArrayList();
+    private static ObservableList<Project> projects = FXCollections.observableArrayList();
 
-    public void newTimecard(Timecard timecard) {
+    public static void addTimecard(Timecard timecard) {
+
         timecards.add(timecard);
     }
 
-    public void newProject(Project project) {
+    public static void addProject(Project project) {
+
         projects.add(project);
     }
 
-    public void newTask(Task task) {
-        tasks.add(task);
-    }
 
     public void deleteTimecard(Timecard timecard) {
+
         timecards.remove(timecard);
     }
 
     public void deleteProject(Project project) {
+
         projects.remove(project);
     }
 
-    public void deleteTask(Task task) {
-        tasks.remove(task);
+    public ObservableList<Timecard> getAllTimecards() {
+
+        return Data.timecards;
+    }
+
+    public static ObservableList<Project> getAllProjects() {
+
+        return Data.projects;
     }
 
     public void search(String searchTxt) {

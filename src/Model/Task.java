@@ -5,7 +5,7 @@ public class Task {
     private String taskNumber;
     private String taskDescription;
 
-    Task(String taskName, String taskNumber, String taskDescription) {
+    public Task(String taskName, String taskNumber, String taskDescription) {
         setTaskName(taskName);
         setTaskNumber(taskNumber);
         setTaskDescription(taskDescription);
