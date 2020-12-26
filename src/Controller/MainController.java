@@ -1,5 +1,7 @@
 package Controller;
 
+import Model.Data;
+import Model.Project;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -32,10 +34,10 @@ public class MainController implements Initializable {
     private StackedBarChart<?, ?> chart;
 
     @FXML
-    private TreeTableView<?> treeView;
+    private TreeTableView<Project> treeView;
 
     @FXML
-    private TreeTableColumn<?, ?> projectCol;
+    private TreeTableColumn<Project, String> projectCol;
 
     @FXML
     private Button closeButt;
@@ -93,6 +95,7 @@ public class MainController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
 
     }
 }
