@@ -5,27 +5,27 @@ import javafx.collections.ObservableList;
 
 public class Data {
     private static ObservableList<Timecard> timecards = FXCollections.observableArrayList();
-    private static ObservableList<Project> projects = FXCollections.observableArrayList();
+    private static ObservableList<Task> tasks = FXCollections.observableArrayList();
 
     public static void addTimecard(Timecard timecard) {
 
         timecards.add(timecard);
     }
 
-    public static void addProject(Project project) {
-
-        projects.add(project);
+    public static void saveTask(String taskName, String taskNumber, String taskDescription) {
+        Task newTask = new Task(taskName, taskNumber, taskDescription);
+        tasks.add(newTask);
     }
 
 
-    public void deleteTimecard(Timecard timecard) {
+    public static void deleteTimecard(Timecard timecard) {
 
         timecards.remove(timecard);
     }
 
-    public void deleteProject(Project project) {
+    public static void deleteTask(Task task) {
 
-        projects.remove(project);
+        tasks.remove(task);
     }
 
     public ObservableList<Timecard> getAllTimecards() {
@@ -33,9 +33,14 @@ public class Data {
         return Data.timecards;
     }
 
-    public static ObservableList<Project> getAllProjects() {
+    public static ObservableList<Task> getAllTasks() {
 
-        return Data.projects;
+        return Data.tasks;
+    }
+
+    public static void modify(int row, String taskName, String taskNumber, String taskDescription) {
+        Task modifiedTask = new Task(taskName, taskNumber, taskDescription);
+        tasks.set(row, modifiedTask);
     }
 
     public void search(String searchTxt) {

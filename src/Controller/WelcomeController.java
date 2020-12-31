@@ -47,7 +47,6 @@ public class WelcomeController {
         DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
         Date date = new Date();
         Timecard newTimecard = new Timecard("Shantel's GoodCard", dateFormat.format(date));
-        System.out.println(newTimecard.getCardDate());
 
         Stage stage = new Stage();
         Parent root = FXMLLoader.load(getClass().getResource("/View/MainScreen.fxml"));

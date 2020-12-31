@@ -8,9 +8,9 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.MenuButton?>
 <?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.control.TreeTableColumn?>
-<?import javafx.scene.control.TreeTableView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -115,7 +115,7 @@
                                 <items>
                                   <MenuItem mnemonicParsing="false" onAction="#viewButt" text="Change View" />
                                   <MenuItem mnemonicParsing="false" onAction="#reportButt" text="Generate Report" />
-                                    <MenuItem mnemonicParsing="false" onAction="#deleteButt" text="Delete Timecard" />
+                                    <MenuItem mnemonicParsing="false" onAction="#optionDeleteButt" text="Delete Timecard" />
                                 </items>
                                  <HBox.margin>
                                     <Insets bottom="7.0" />
@@ -149,7 +149,7 @@
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="40.0">
                            <children>
-                              <Button mnemonicParsing="false" onAction="#newButt" prefHeight="30.0" prefWidth="120.0" style="-fx-font-family: Tahoma; -fx-font-weight: Bold;" text="New Project">
+                              <Button mnemonicParsing="false" onAction="#newButt" prefHeight="30.0" prefWidth="120.0" style="-fx-font-family: Tahoma; -fx-font-weight: Bold;" text="New Task">
                                  <HBox.margin>
                                     <Insets bottom="20.0" />
                                  </HBox.margin>
@@ -185,26 +185,32 @@
             </GridPane>
             <VBox prefHeight="200.0" prefWidth="100.0">
                <GridPane.margin>
-                  <Insets top="5.0" />
+                  <Insets left="10.0" right="10.0" top="10.0" />
                </GridPane.margin>
                <children>
                   <HBox alignment="BOTTOM_LEFT" prefHeight="100.0" prefWidth="200.0">
                      <children>
                         <TextField fx:id="searchTxt" onAction="#searchTxt" prefWidth="225.0" promptText="Search">
                            <HBox.margin>
-                              <Insets bottom="5.0" left="5.0" />
+                              <Insets bottom="5.0" />
                            </HBox.margin>
                         </TextField>
                      </children>
                   </HBox>
-                  <TreeTableView fx:id="treeView" prefHeight="597.0" prefWidth="225.0" showRoot="false">
+                  <TableView fx:id="table" prefHeight="600.0" prefWidth="235.0">
                     <columns>
-                      <TreeTableColumn fx:id="projectCol" prefWidth="225.0" text="My Projects" />
+                      <TableColumn fx:id="taskCol" prefWidth="234.0" text="My Tasks" />
                     </columns>
+                  </TableView>
+                  <HBox alignment="TOP_CENTER" prefHeight="155.0" prefWidth="235.0" spacing="20.0">
+                     <children>
+                        <Button mnemonicParsing="false" onAction="#modifyButt" prefHeight="30.0" prefWidth="70.0" style="-fx-font-family: Tahoma; -fx-font-weight: Bold;" text="Modify" />
+                        <Button mnemonicParsing="false" onAction="#deleteButt" prefHeight="30.0" prefWidth="70.0" style="-fx-font-family: Tahoma; -fx-font-weight: Bold;" text="Delete" />
+                     </children>
                      <VBox.margin>
-                        <Insets bottom="5.0" left="5.0" right="5.0" />
+                        <Insets top="10.0" />
                      </VBox.margin>
-                  </TreeTableView>
+                  </HBox>
                </children>
             </VBox>
          </children>

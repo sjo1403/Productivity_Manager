@@ -1,7 +1,7 @@
 package Controller;
 
 import Model.Data;
-import Model.Project;
+import Model.Task;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -10,6 +10,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.chart.StackedBarChart;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -28,42 +29,62 @@ public class MainController implements Initializable {
     private TextField remainTxt;
 
     @FXML
-    private TextField searchTxt;
-
-    @FXML
     private StackedBarChart<?, ?> chart;
-
-    @FXML
-    private TreeTableView<Project> treeView;
-
-    @FXML
-    private TreeTableColumn<Project, String> projectCol;
 
     @FXML
     private Button closeButt;
 
-    /**
-     * returns user to welcome screen
-     */
+    @FXML
+    private TextField searchTxt;
+
+    @FXML
+    private TableView<Task> table;
+
+    @FXML
+    private TableColumn<Task, String> taskCol;
+
     @FXML
     void closeButt(ActionEvent event) {
         Stage stage = (Stage) closeButt.getScene().getWindow();
         stage.close();
-
     }
 
     @FXML
     void newButt(ActionEvent event) throws IOException {
         Stage stage = new Stage();
-        Parent root = FXMLLoader.load(getClass().getResource("/View/NewProject.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/View/NewTask.fxml"));
         stage.setTitle("GoodCard");
-        stage.setScene(new Scene(root, 600, 550));
+        stage.setScene(new Scene(root, 400, 350));
+        stage.show();
+    }
+
+    @FXML
+    void modifyButt(ActionEvent event) throws IOException {
+        int selectedRow = table.getSelectionModel().getSelectedIndex();
+        Task selectedTask = (Task) table.getSelectionModel().getSelectedItem();
+
+        Stage stage = new Stage();
+        Parent root = FXMLLoader.load(getClass().getResource("/View/ModifyTask.fxml"));
+        stage.setTitle("GoodCard");
+        stage.setScene(new Scene(root, 400, 350));
         stage.show();
 
+        ModifyTask.passInfo(selectedRow, selectedTask);
+    }
+
+    @FXML
+    void deleteButt(ActionEvent event) {
+        Task selectedTask = (Task) table.getSelectionModel().getSelectedItem();
+        Data.deleteTask(selectedTask);
     }
 
     @FXML
     void optionButt(ActionEvent event) {
+
+    }
+
+    @FXML
+    void viewButt(ActionEvent event) {
 
     }
 
@@ -73,14 +94,9 @@ public class MainController implements Initializable {
     }
 
     @FXML
-    void deleteButt(ActionEvent event) {
+    void optionDeleteButt(ActionEvent event) {
+        //delete current timecard
         closeButt(event);
-
-    }
-
-    @FXML
-    void trackButt(ActionEvent event) {
-
     }
 
     @FXML
@@ -89,13 +105,13 @@ public class MainController implements Initializable {
     }
 
     @FXML
-    void viewButt(ActionEvent event) {
+    void trackButt(ActionEvent event) {
 
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
-
+        table.setItems(Data.getAllTasks());
+        taskCol.setCellValueFactory(new PropertyValueFactory<Task, String>("taskName"));
     }
 }

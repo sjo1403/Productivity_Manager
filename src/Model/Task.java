@@ -1,9 +1,9 @@
 package Model;
 
 public class Task {
-    private String taskName;
-    private String taskNumber;
-    private String taskDescription;
+    private String taskName = "";
+    private String taskNumber = "";
+    private String taskDescription = "";
 
     public Task(String taskName, String taskNumber, String taskDescription) {
         setTaskName(taskName);
@@ -15,9 +15,7 @@ public class Task {
         return taskName;
     }
 
-    public void setTaskName(String taskName) {
-        this.taskName = taskName;
-    }
+    public void setTaskName(String taskName) { this.taskName = taskName; }
 
     public String getTaskNumber() {
         return taskNumber;
